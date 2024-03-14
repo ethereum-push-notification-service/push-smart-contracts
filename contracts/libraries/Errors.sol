@@ -1,5 +1,5 @@
 // // SPDX-License-Identifier: SEE LICENSE IN LICENSE
-// pragma solidity ^0.8.20;
+pragma solidity ^0.8.20;
 
 /// @title Errors
 /// @notice Library that includes all custom errors that any contract might use to revert with.

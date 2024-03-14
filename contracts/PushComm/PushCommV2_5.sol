@@ -27,6 +27,8 @@ import { IERC20 } from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import { SafeERC20 } from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import { Initializable } from "@openzeppelin/contracts/proxy/utils/Initializable.sol";
 
+// import "wormhole-solidity-sdk/WormholeRelayerSDK.sol";
+
 contract PushCommV2_5 is Initializable, PushCommStorageV2, IPushCommV2 {
     using SafeERC20 for IERC20;
 
@@ -513,6 +515,8 @@ contract PushCommV2_5 is Initializable, PushCommStorageV2, IPushCommV2 {
         userToChannelNotifs[msg.sender][_channel] = notifSetting;
         emit UserNotifcationSettingsAdded(_channel, msg.sender, _notifID, notifSetting);
     }
+    
+/// TO BE REMOVED/MODIFIED AFTER WORMHOLE INTEGRATION IS SUCCESSFUL
 
     function createIncentivizeChatRequest(address requestReceiver, uint256 amount) external {
         if (amount == 0) {
@@ -535,4 +539,7 @@ contract PushCommV2_5 is Initializable, PushCommStorageV2, IPushCommV2 {
 
         emit IncentivizeChatReqInitiated(requestSender, requestReceiver, amount, block.timestamp);
     }
+
+/// TO BE REMOVED/MODIFIED AFTER WORMHOLE INTEGRATION IS SUCCESSFUL
+
 }

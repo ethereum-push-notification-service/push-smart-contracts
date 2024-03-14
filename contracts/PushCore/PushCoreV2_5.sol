@@ -23,6 +23,9 @@ import { IERC20 } from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import { SafeERC20 } from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import { PausableUpgradeable, Initializable } from "@openzeppelin/contracts-upgradeable/utils/PausableUpgradeable.sol";
 
+import "wormhole-solidity-sdk/WormholeRelayerSDK.sol";
+
+
 contract PushCoreV2_5 is Initializable, PushCoreStorageV1_5, PausableUpgradeable, PushCoreStorageV2, IPushCoreV2 {
     using SafeERC20 for IERC20;
 
@@ -514,6 +517,7 @@ contract PushCoreV2_5 is Initializable, PushCoreStorageV1_5, PausableUpgradeable
         PROTOCOL_POOL_FEES = PROTOCOL_POOL_FEES + _rewardAmount;
     }
 
+/// TO BE REMOVED/MODIFIED AFTER WORMHOLE INTEGRATION IS SUCCESSFUL
     /// @inheritdoc IPushCoreV2
     function handleChatRequestData(address requestSender, address requestReceiver, uint256 amount) external {
         if (msg.sender != epnsCommunicator) {
@@ -541,4 +545,7 @@ contract PushCoreV2_5 is Initializable, PushCoreStorageV1_5, PausableUpgradeable
 
         emit ChatIncentiveClaimed(msg.sender, _amount);
     }
+
+/// TO BE REMOVED/MODIFIED AFTER WORMHOLE INTEGRATION IS SUCCESSFUL
+
 }
