@@ -138,17 +138,6 @@ abstract contract BaseTest is Test, Constants, Events {
             address(0), // aDai address
             0
         );
-        // address admin = address(
-        //     uint160(
-        //         uint256(
-        //             vm.load(address(epnsCoreProxy), 0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103)
-        //         )
-        //     )
-        // );
-        // vm.prank(actor.admin);
-        // EPNSCoreAdmin(admin).upgradeAndCall(
-        //     ITransparentUpgradeableProxy(address(epnsCoreProxy)), address(coreProxy), ""
-        // );
 
         epnsCoreProxyAdmin.upgrade(
             ITransparentUpgradeableProxy(address(epnsCoreProxy)),
@@ -226,7 +215,7 @@ abstract contract BaseTest is Test, Constants, Events {
         // Transfer 50 eth to every actor
         vm.deal({ account: _actor, newBalance: 50 ether });
         // Transfer 50K PUSH Tokens for every actor
-        vm.prank(tokenDistributor);
+        changePrank(tokenDistributor);
         pushToken.transfer(_actor, 50_000 ether);
         return _actor;
     }
